@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fps/3dCC.gd" type="Script" id=1]
+[ext_resource path="res://scripts/cube_mover.gd" type="Script" id=2]
+[ext_resource path="res://audio/brick-laying.ogg" type="AudioStream" id=3]
+[ext_resource path="res://audio/break.ogg" type="AudioStream" id=4]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+height = 0.5
+
+[node name="3dCC" type="KinematicBody"]
+script = ExtResource( 1 )
+move_speed = 8
+acceleration = 1.1
+friction = 1.34
+
+[node name="UpperCollider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.25, 0 )
+shape = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="UpperCollider"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.09278e-08, 0.25 )
+current = true
+size = 0.001
+
+[node name="RayCast" type="RayCast" parent="UpperCollider/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -500 )
+
+[node name="LowerCollider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.25, 0 )
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="recticle" type="ColorRect" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3.0
+margin_top = -2.0
+margin_right = 3.0
+margin_bottom = 4.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="cube_mover" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="TweenGood" type="Tween" parent="cube_mover"]
+
+[node name="TweenBad" type="Tween" parent="cube_mover"]
+
+[node name="TweenRotate" type="Tween" parent="cube_mover"]
+
+[node name="AudioGood" type="AudioStreamPlayer" parent="cube_mover"]
+stream = ExtResource( 3 )
+
+[node name="AudioBad" type="AudioStreamPlayer" parent="cube_mover"]
+stream = ExtResource( 4 )
+
+[node name="AudioRotate" type="AudioStreamPlayer" parent="cube_mover"]
+stream = ExtResource( 3 )
+
+[connection signal="tween_completed" from="cube_mover/TweenGood" to="cube_mover" method="_on_TweenGood_tween_completed"]
+[connection signal="tween_completed" from="cube_mover/TweenBad" to="cube_mover" method="_on_TweenBad_tween_completed"]
