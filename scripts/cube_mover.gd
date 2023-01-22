@@ -22,9 +22,7 @@ func _input(event):
 			translate_cube(Vector3.UP)
 		if event.is_action_pressed("translate_down"):
 			translate_cube(Vector3.DOWN)
-		if event.is_action_pressed("click"):
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+			
 
 func rotate_cube(axis:Vector3):
 	if tween_bad.get_runtime() > 0 or tween_good.get_runtime() > 0:

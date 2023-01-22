@@ -21,7 +21,6 @@ shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="UpperCollider"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.09278e-08, 0.25 )
-current = true
 size = 0.001
 
 [node name="RayCast" type="RayCast" parent="UpperCollider/Camera"]

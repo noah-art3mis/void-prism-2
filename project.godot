@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="void_prism"
-run/main_scene="res://scenes/menu.tscn"
+run/main_scene="res://scenes/main_voxel.tscn"
 boot_splash/image="res://jam_stuff/noBG-Wildling-Wallpaper 4k.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"

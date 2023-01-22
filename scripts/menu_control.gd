@@ -1,22 +1,32 @@
 extends Node
 
-onready var grid = get_parent().get_node("voxel_grid")
+onready var menu_state = true
+onready var camera = $MenuCamera
+onready var tween = get_node("MenuCamera/Tween")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _process(delta):
-	grid.transform = grid.transform.rotated(Vector3.UP, 0.0005)
-	grid.transform = grid.transform.rotated(Vector3.RIGHT, 0.001)
-
 func _input(event):
-	if event.is_action_pressed("BEGIN"):
-		get_tree().change_scene("res://scenes/main_voxel.tscn")
-	if event.is_action_pressed("LEAVE"):
-		get_tree().quit()
-		
-func animation():
-	var blocks = grid.get_children()
-	for n in blocks.size():
-#		blocks[n].rotate or translate
-		pass
+	if menu_state == true:
+		if event.is_action_pressed("BEGIN"):
+			begin()
+			menu_state = false
+			$HUD.visible = false
+	if event.is_action_pressed("click"):
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _process(delta):
+	if menu_state == true:
+		camera.transform = camera.transform.rotated(Vector3.UP, 0.000025)
+		camera.transform = camera.transform.rotated(Vector3.BACK, 0.000025)
+		camera.transform = camera.transform.rotated(Vector3.RIGHT, 0.0005)
+
+func begin():
+	var target = get_parent().get_node("3dCC").get_node("UpperCollider").get_node("Camera")
+	tween.interpolate_property(camera, "global_transform", camera.global_transform, target.global_transform,
+			1,	Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.start()
+
+func _on_Tween_tween_completed(object, key):
+	camera.current = false
