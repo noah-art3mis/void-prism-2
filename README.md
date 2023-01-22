@@ -1,6 +1,6 @@
-# VOID PRISM
+<img src="https://github.com/noah-art3mis/void-prism/blob/master/github_header.png" style=""/>
 
-<img src="https://github.com/noah-art3mis/void-prism/blob/master/gitbug_header.png" style=""/>
+# VOID PRISM
 
 play at: https://noahart3mis.itch.io/void-prism
 
