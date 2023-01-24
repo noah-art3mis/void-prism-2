@@ -4,37 +4,34 @@ onready var exceptions
 onready var MOVE_DISTANCE = 4
 onready var self_detector = $self_detector
 
-func set_target(target):
-	transform = transform.translated(target.translation)
-	set_exceptions(target)
-	cast_to = Vector3.ZERO
-	
-func set_exceptions(target:Spatial):
-	clear_exceptions()
-	exceptions = get_exceptions(target)
-	for i in exceptions.size():
-		add_exception(exceptions[i])
 
-func get_exceptions(target): #can maybe remove the new array and just overwrite old one
+func _ready():
+	exceptions = get_exceptions()
+	add_exceptions(exceptions)
+
+func add_exceptions(array):
+	for i in array.size():
+		add_exception(array[i])		
+
+func get_exceptions():
 	var array = []
-	var children = target.get_children()
+	var children = get_parent().get_children() 
 	for i in children.size():
 		var mesh = children[i]
 		var body = mesh.get_child(0)
 		array.append(body)
 	return array
-
 	
 func matches(axis:Vector3) -> bool:
 	cast_to = axis * MOVE_DISTANCE
+	self_detector.cast_to = axis
+	#Debug.draw_line(global_translation, cast_to)
+
 	force_raycast_update()
-	var other = get_collider()
-	
-	self_detector.cast_to = axis ## if this is local it will rotate twice and cause issues
 	self_detector.force_raycast_update()
 	var me = self_detector.get_collider()
+	var other = get_collider()
 	
-	Debug.draw_line(transform.origin, cast_to)
 	if other == null:
 		print("3: no target; moving")	
 		print("")

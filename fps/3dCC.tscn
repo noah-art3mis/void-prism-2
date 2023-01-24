@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fps/3dCC.gd" type="Script" id=1]
+[ext_resource path="res://scripts/cube_mover.gd" type="Script" id=2]
+[ext_resource path="res://audio/mover2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://audio/quebrar0.ogg" type="AudioStream" id=4]
+[ext_resource path="res://audio/encaixar4.ogg" type="AudioStream" id=5]
+[ext_resource path="res://audio/girar.ogg" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -31,20 +36,45 @@ shape = SubResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="HUD" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -300.0
-margin_right = 512.0
-margin_bottom = 300.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="recticle" type="ColorRect" parent="HUD"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -5.0
-margin_top = -5.0
+margin_left = -3.0
+margin_top = -2.0
+margin_right = 3.0
+margin_bottom = 4.0
 color = Color( 0, 0, 0, 1 )
+
+[node name="cube_mover" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="TweenGood" type="Tween" parent="cube_mover"]
+
+[node name="TweenBad" type="Tween" parent="cube_mover"]
+
+[node name="TweenRotate" type="Tween" parent="cube_mover"]
+
+[node name="AudioGood" type="AudioStreamPlayer" parent="cube_mover"]
+stream = ExtResource( 5 )
+volume_db = -6.0
+
+[node name="AudioBad" type="AudioStreamPlayer" parent="cube_mover"]
+stream = ExtResource( 4 )
+volume_db = -12.0
+
+[node name="AudioRotate" type="AudioStreamPlayer" parent="cube_mover"]
+stream = ExtResource( 6 )
+volume_db = -12.0
+pitch_scale = 1.1
+
+[node name="AudioMove" type="AudioStreamPlayer" parent="cube_mover"]
+stream = ExtResource( 3 )
+volume_db = -6.0
+
+[connection signal="tween_completed" from="cube_mover/TweenGood" to="cube_mover" method="_on_TweenGood_tween_completed"]
+[connection signal="tween_completed" from="cube_mover/TweenBad" to="cube_mover" method="_on_TweenBad_tween_completed"]
