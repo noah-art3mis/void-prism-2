@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/53-Theme-Ass-Required.png-46b5afdac10cfda7ad9856370bc7fd9c.stex"
+path="res://.import/theme.png-ded7322ff010a3c1ff3da85f7cf2aa3f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://jam_stuff/53-Theme-Ass-Required.png"
-dest_files=[ "res://.import/53-Theme-Ass-Required.png-46b5afdac10cfda7ad9856370bc7fd9c.stex" ]
+source_file="res://icons/theme.png"
+dest_files=[ "res://.import/theme.png-ded7322ff010a3c1ff3da85f7cf2aa3f.stex" ]
 
 [params]
 

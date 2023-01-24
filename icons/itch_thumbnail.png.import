@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/noBG-Wildling-Wallpaper 4k.png-5b7e805c31b7e1ec07231efd1d3c82f7.stex"
+path="res://.import/itch_thumbnail.png-1687ddd8aee4e842b5dd08d2a08e09e3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://jam_stuff/noBG-Wildling-Wallpaper 4k.png"
-dest_files=[ "res://.import/noBG-Wildling-Wallpaper 4k.png-5b7e805c31b7e1ec07231efd1d3c82f7.stex" ]
+source_file="res://icons/itch_thumbnail.png"
+dest_files=[ "res://.import/itch_thumbnail.png-1687ddd8aee4e842b5dd08d2a08e09e3.stex" ]
 
 [params]
 

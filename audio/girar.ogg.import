@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/girar.ogg-e52d0181ad2769d7804f2ac7d083832e.oggstr"
+
+[deps]
+
+source_file="res://audio/girar.ogg"
+dest_files=[ "res://.import/girar.ogg-e52d0181ad2769d7804f2ac7d083832e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

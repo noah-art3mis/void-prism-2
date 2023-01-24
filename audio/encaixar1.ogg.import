@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/encaixar1.ogg-15e03eb7548bda970a425e1baea013aa.oggstr"
+
+[deps]
+
+source_file="res://audio/encaixar1.ogg"
+dest_files=[ "res://.import/encaixar1.ogg-15e03eb7548bda970a425e1baea013aa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

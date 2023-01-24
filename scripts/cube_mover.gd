@@ -36,7 +36,7 @@ func rotate_cube(axis:Vector3):
 				0.5,	Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween_rotate.start()
 		print("rotated " + cube.name + "with ", normal)
-		$AudioGood.play()
+		$AudioRotate.play()
 		
 		
 func translate_cube(axis):
@@ -54,10 +54,12 @@ func move(tween, cube, axis):
 		tween.interpolate_property(cube, "global_translation", pos, target,
 				0.5,	Tween.TRANS_CIRC, Tween.EASE_IN)
 		tween.start()
+		$AudioMove.play()
 
 
 func _on_TweenGood_tween_completed(_object, _key):
 	$AudioGood.play()
+	pass
 
 func _on_TweenBad_tween_completed(object, _key):
 	$AudioBad.play()

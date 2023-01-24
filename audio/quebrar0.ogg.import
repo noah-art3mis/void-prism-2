@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/quebrar0.ogg-b39106f4bf33426aee485614688a0a52.oggstr"
+
+[deps]
+
+source_file="res://audio/quebrar0.ogg"
+dest_files=[ "res://.import/quebrar0.ogg-b39106f4bf33426aee485614688a0a52.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
