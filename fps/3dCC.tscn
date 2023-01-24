@@ -36,18 +36,22 @@ shape = SubResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="HUD" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
 
 [node name="recticle" type="ColorRect" parent="HUD"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -3.0
-margin_top = -2.0
-margin_right = 3.0
-margin_bottom = 4.0
+margin_left = -5.0
+margin_top = -5.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="cube_mover" type="Spatial" parent="."]
